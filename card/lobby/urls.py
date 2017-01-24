@@ -1,0 +1,50 @@
+from django.conf.urls import patterns, include, url
+
+from django.conf import settings
+
+def url_prefix(origin, prefix=settings.URL_VERSION):
+    rv = origin.replace('^', '^%s/'%prefix)
+    return rv
+
+urlpatterns = patterns('',
+    url(url_prefix(r'^$'), 'card.lobby.views.root_api', name='index'),
+    url(url_prefix(r'^friend/'), include('card.lobby.apps.friend.urls')),
+    url(url_prefix(r'^game/'), include('card.lobby.apps.game.urls')),
+    url(url_prefix(r'^player/'), include('card.lobby.apps.player.urls')),
+    url(url_prefix(r'^rank/'), include('card.lobby.apps.rank.urls')),
+    url(url_prefix(r'^store/'), include('card.lobby.apps.store.urls')), 
+    url(url_prefix(r'^timeline/'), include('card.lobby.apps.timeline.urls')),
+    url(url_prefix(r'^chat/'), include('card.lobby.apps.chat.urls')),
+    url(url_prefix(r'^task/'), include('card.lobby.apps.task.urls')),
+    url(url_prefix(r'^update/'), include('card.lobby.apps.update.urls')),
+    url(url_prefix(r'^freebie/'), include('card.lobby.apps.freebie.urls')),
+    url(url_prefix(r'^activity/'), include('card.lobby.apps.activity.urls')),
+    url(url_prefix(r'^daily/'), include('card.lobby.apps.daily.urls')),
+    url(url_prefix(r'^holytree/'), include('card.lobby.apps.holytree.urls')),
+    url(url_prefix(r'^skypay/'), include('card.lobby.apps.skypay.urls')),
+    url(url_prefix(r'^mobile/'), include('card.lobby.apps.mobile.urls')),
+    url(url_prefix(r'^iapppay/'), include('card.lobby.apps.iapppay.urls')),
+    url(url_prefix(r'^turner/'), include('card.lobby.apps.turner.urls')),
+    url(url_prefix(r'^three/'), include('card.lobby.apps.three.urls')),
+    url(url_prefix(r'^fruit/'), include('card.lobby.apps.fruit.urls')),
+    url(url_prefix(r'^roulette/'), include('card.lobby.apps.roulette.urls')),
+    url(url_prefix(r'^lottery/'), include('card.lobby.apps.lottery.urls')),
+    url(url_prefix(r'^baidu/'), include('card.lobby.apps.baidu.urls')),
+    url(url_prefix(r'^zhuoyi/'), include('card.lobby.apps.zhuoyi.urls')),
+    url(url_prefix(r'^wiipay/'), include('card.lobby.apps.wiipay.urls')),
+    url(url_prefix(r'^youku/'), include('card.lobby.apps.youku.urls')),
+    url(url_prefix(r'^dianyou/'), include('card.lobby.apps.dianyou.urls')),
+    url(url_prefix(r'^yuyang/'), include('card.lobby.apps.yuyang.urls')),
+    url(url_prefix(r'^api/'), include('card.lobby.apps.api.urls')),
+    url(url_prefix(r'^chubao/'), include('card.lobby.apps.chubao.urls')),
+    url(url_prefix(r'^coolpay/'), include('card.lobby.apps.coolpad.urls')),
+    url(url_prefix(r'^dianxin/'), include('card.lobby.apps.dianxin.urls')),
+    url(url_prefix(r'^cat2currency/'), include('card.lobby.apps.cat2currency.urls')),
+    url(url_prefix(r'^logout/$'), 'django.contrib.auth.views.logout', {'next_page':'/'}, name='logout'),
+    url(url_prefix(r'^luckbag/'), include('card.lobby.apps.luckbag.urls')),
+    url(url_prefix(r'^moguwan/'), include('card.lobby.apps.moguwan.urls')),
+    url(url_prefix(r'^appchina/'), include('card.lobby.apps.appchina.urls')),
+    url(url_prefix(r'^ysdk/'), include('card.lobby.apps.ysdk.urls')),
+    url(url_prefix(r'^huawei/'), include('card.lobby.apps.huawei.urls')),
+    url(url_prefix(r'^invite/'), include('card.lobby.apps.invite.urls')),
+)
