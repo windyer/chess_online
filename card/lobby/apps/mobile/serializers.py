@@ -1,0 +1,22 @@
+from rest_framework import serializers
+
+class ChargeNotifyRequest(serializers.Serializer):
+    OrderID = serializers.CharField(max_length=40)
+    ExData = serializers.CharField(max_length=64)
+    CheckID = serializers.IntegerField(required=False)
+    TradeID = serializers.CharField(max_length=70, required=False)
+    Price = serializers.IntegerField(required=False)
+    ActionTime = serializers.CharField(max_length=20)
+    ActionID = serializers.IntegerField()
+    MSISDN = serializers.CharField(max_length=20, required=False)
+    FeeMSISDN = serializers.CharField(max_length=40, required=False)
+    AppID = serializers.CharField(max_length=30)
+    ProgramID = serializers.CharField(max_length=30, required=False)
+    PayCode = serializers.CharField(max_length=30, required=False)
+    TotalPrice = serializers.IntegerField(required=False)
+    SubsNumb = serializers.IntegerField(required=False)
+    SubsSeq = serializers.IntegerField(required=False)
+    ChannelID = serializers.CharField(max_length=70, required=False)
+    OrderType = serializers.IntegerField(required=False)
+    OrderPayment = serializers.IntegerField()
+    MD5Sign = serializers.CharField(max_length=32)

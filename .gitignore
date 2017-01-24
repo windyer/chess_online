@@ -1,10 +1,9 @@
 log
 *.log
 *.pyc
-*.pyo
-*.pyo
 .lock
-*.kch
-*.swp
 .idea/
 .idea/*
+upload/*
+*.2smi
+*.2smo
